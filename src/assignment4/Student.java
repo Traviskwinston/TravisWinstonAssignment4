@@ -38,7 +38,5 @@ public class Student {
 	public void setGrade(Integer grade) {
 		this.grade = grade;
 	}
-	
-	
 
 }

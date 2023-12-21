@@ -9,7 +9,7 @@ public class MakeANewCSV {
 	public void makeANewCSV(Student[] students, String corse) {
 		BufferedWriter fileWriter = null;
 		try {
-			fileWriter = new BufferedWriter(new FileWriter(corse+"2.csv"));
+			fileWriter = new BufferedWriter(new FileWriter(corse+".csv"));
 			fileWriter.write("Student ID,Student Name,Course,Grade\n");//Set that first line up
 			for (Student student : students) {
 				if (student.getCourse().matches(corse + ".+")) {
