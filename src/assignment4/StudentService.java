@@ -5,13 +5,10 @@ import java.util.Comparator;
 
 public class StudentService {
 	
-	//Declare Student Array to store students from master file
 	private Student[] students;
-	//Declare Objects
-	FileService fileService = new FileService();
-	
-	//Store the students
+
 	public StudentService() {
+		FileService fileService = new FileService();
 		students = fileService.addStudentsToArray();
 	}
 	
@@ -27,17 +24,18 @@ public class StudentService {
 	
 	//Use the FileService to write to a new CSV file based on the name of the course
 	public void makeANewCSV(String course) {
+		FileService fileService = new FileService();
 		fileService.makeANewCSV(students, course);
 	}
 	
-	public Student createStudent(String[] stringInput) {
-		Student student = new Student();
-		student.setStudentID(Integer.parseInt(stringInput[0]));
-		student.setStudentName(stringInput[1]);
-		student.setCourse(stringInput[2]);
-		student.setGrade(Integer.parseInt(stringInput[3]));
-		return student;
-	}
+//	public Student createStudent(String[] stringInput) {
+//		Student student = new Student();
+//		student.setStudentID(Integer.parseInt(stringInput[0]));
+//		student.setStudentName(stringInput[1]);
+//		student.setCourse(stringInput[2]);
+//		student.setGrade(Integer.parseInt(stringInput[3]));
+//		return student;
+//	}
 		
 	public String[] parseText(String input) {
 		return input.split(",");

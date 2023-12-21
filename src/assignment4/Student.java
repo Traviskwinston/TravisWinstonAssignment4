@@ -7,12 +7,11 @@ public class Student {
 	String course;
 	Integer grade;
 	
-	void setProperties(Integer studentID, String studentName, String course, Integer grade) {
+	public Student(int studentID, String studentName, String course, int grade) {
 		this.studentID = studentID;
 		this.studentName = studentName;
 		this.course = course;
-		this.grade = grade;
-	}
+		this.grade = grade;	}
 	
 	public Integer getStudentID() {
 		return studentID;

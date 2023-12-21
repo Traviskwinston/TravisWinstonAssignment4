@@ -13,15 +13,14 @@ public class FileService {
 	
 	//Adds the students from the FILE to an array
 	public Student[] addStudentsToArray() {
-		String line; //Used to read the line the fileReaders are on.
 		int lineCount=-1; //used to find out how many lines are in the file. Starting -1 to not include the Student ID,Student Name,Course,Grade Line
-		int lineNumber=0; //used to assign the line in the file to the corresponding spot in the array
+		int lineOn=0; //used to assign the line in the file to the corresponding spot in the array
+		String line; //Used to read the line the fileReaders are on.
 		BufferedReader fileReader = null;
 		BufferedReader fileSizeFinder = null;
 		
 		Student[] students = null;
-		StudentService studentService = new StudentService();
-		
+//		StudentService studentService = new StudentService();	
 			try {
 				//Store the Master List into an Array
 				fileSizeFinder = new BufferedReader(new FileReader(FILENAME));
@@ -34,8 +33,9 @@ public class FileService {
 				fileReader = new BufferedReader(new FileReader(FILENAME));
 				fileReader.readLine(); // use this to skip that pesky first line.
 				while ((line = fileReader.readLine()) != null){
-					students[lineNumber] = studentService.createStudent((studentService.parseText(line)));
-					lineNumber++;
+					String[] studentInfo = line.split(",");
+					students[lineOn] = new Student(Integer.parseInt(studentInfo[0]), studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[3]));
+					lineOn++;
 				}
 			} catch (FileNotFoundException e) {
 				System.out.println("No student-master-list.csv file found");
